@@ -1,1 +1,1 @@
-console.log('hello new world')
+console.log('hello this is bar service')
