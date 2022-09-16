@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build & Test') {
+            matrix {
+                axes {
+                    axis {
+                        name 'lib'
+                        values 'bar-lib', 'baz-lib', 'foo-lib'
+                    }
+                }
+                when { changeset pattern: "lib/$lib/*" }
+                stages {
+                    stage('build') {
+                        steps {
+                            dir("lib/$lib") {
+                                sh "make build"
+                            }
+                        }
+                    }
+                    stage('test') {
+                        steps {
+                            dir("lib/$lib") {
+                                sh "make service-test"
+                            }
+                        }
+                    }
+                    stage('deploy') {
+                        steps {
+                            dir("lib/$lib") {
+                                sh "make deploy-qa"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        stage('End to end') {
+            steps {
+                sh "make e2e-qa"
+            }
+        }
+    }
+}
