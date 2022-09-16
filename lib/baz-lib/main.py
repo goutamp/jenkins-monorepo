@@ -1,1 +1,1 @@
-print('This is baz service')
+print('This is baz lib')
