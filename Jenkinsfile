@@ -14,3 +14,5 @@ node {
 
     runner(servicesToRun, pipeline)    
 }
+
+12
