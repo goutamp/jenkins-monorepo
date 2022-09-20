@@ -16,3 +16,4 @@
 - Use the password from the terminal
 - Select 'Install suggested plugins'
 - Select 'Skip and continue as admin'
+- this is test file
