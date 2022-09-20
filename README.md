@@ -17,4 +17,4 @@
 - Select 'Install suggested plugins'
 - Select 'Skip and continue as admin'
 - this is test file
-123455  ci skip
+123455  ci skip 3
