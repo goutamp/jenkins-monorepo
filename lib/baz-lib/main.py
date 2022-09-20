@@ -1,1 +1,1 @@
-print('This is baz test baz-lib test')
+print('This is baz test baz test')
