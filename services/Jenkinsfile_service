@@ -18,8 +18,10 @@ pipeline {
                 stages {
                     stage('build') {
                         when {
-                             branch 'main'
-                            } 
+                                expression {
+                                   return env.BRANCH_NAME != 'master';
+                                }
+                             }
                         steps {
                             dir("services/$service") {
                                 sh "make build"
