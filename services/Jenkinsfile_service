@@ -18,9 +18,7 @@ pipeline {
                 stages {
                     stage('build') {
                         when {
-                             expression {
-                                return env.BRANCH_NAME == 'main';
-                               }
+                             branch 'main'
                             } 
                         steps {
                             dir("services/$service") {
