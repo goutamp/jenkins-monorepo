@@ -14,7 +14,9 @@ pipeline {
                         values 'foo-service', 'bar-service', 'baz-service'
                     }
                 }
-                when { changeset pattern: "services/$service/*" }
+                when { changeset pattern: "services/$service/*" 
+                       branch 'main'
+                }
                 stages {
                     stage('build') {
                         steps {
