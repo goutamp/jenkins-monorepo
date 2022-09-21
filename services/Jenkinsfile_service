@@ -19,7 +19,7 @@ pipeline {
                     stage('build') {
                         when {
                                 expression {
-                                   return env.GIT_BRANCH == 'main';
+                                   return env.GIT_BRANCH == 'orgin/main';
                                 }
                              }
                         steps {
@@ -32,7 +32,6 @@ pipeline {
                         steps {
                             dir("services/$service") {
                                 sh "make service-test"
-                                sh 'echo $GIT_BRANCH'
                             }
                         }
                     }
