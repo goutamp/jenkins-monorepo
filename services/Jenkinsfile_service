@@ -14,11 +14,14 @@ pipeline {
                         values 'foo-service', 'bar-service', 'baz-service'
                     }
                 }
-                when { changeset pattern: "services/$service/*" 
-                       branch 'main'
-                }
+                when { changeset pattern: "services/$service/*" }
                 stages {
                     stage('build') {
+                        when {
+                             expression {
+                                return env.BRANCH_NAME == 'main';
+                               }
+                            } 
                         steps {
                             dir("services/$service") {
                                 sh "make build"
