@@ -18,3 +18,4 @@
 - Select 'Skip and continue as admin'
 - this is test file
 123455  ci skip 3  "[maven-release-plugin]"
+this is test
