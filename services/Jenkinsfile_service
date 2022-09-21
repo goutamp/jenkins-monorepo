@@ -32,7 +32,7 @@ pipeline {
                         steps {
                             dir("services/$service") {
                                 sh "make service-test"
-                                sh 'echo $BRANCH_NAME'
+                                sh 'echo $env.BRANCH_NAME'
                             }
                         }
                     }
