@@ -1,6 +1,16 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout for lib skip') {
+            steps {
+                scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-lib-skip\\].*')
+            }
+        }
+        stage('Checkout for ci skip') {
+            steps {
+                scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
+            }
+        }
         stage('Build & Test') {
             matrix {
                 axes {
